@@ -1,27 +1,23 @@
 // ======================================================
-// IMPORTS (ordre logique)
+// IMPORTS
 // ======================================================
 
-// 1) Carte + layers
-import { initMap } from "./js/map.js";
+// Carte + layers
+import { initMap, initClusterToggle, initDebugPanel } from "./js/map.js";
 
-// 2) Modules fonctionnels
+// Runways (important : doit être chargé avant METAR)
+import "./js/runways.js";
+
+// METAR / TAF / FIDS
 import { loadMetar } from "./js/metar.js";
 import { loadTaf } from "./js/taf.js";
 import { loadFids } from "./js/fids.js";
 
-// 3) UI
+// UI
 import { initUI } from "./js/ui.js";
 
-// 4) Heatmap
+// Heatmap
 import { initHeatmapToggle, initHeatmapHistory } from "./js/sonometers.js";
-
-// 5) Clusters + debug
-import { initClusterToggle } from "./js/map.js";
-import { initDebugPanel } from "./js/map.js";
-
-// 6) Runways (important : doit être chargé AVANT METAR)
-import "./js/runways.js";
 
 
 // ======================================================
@@ -30,7 +26,7 @@ import "./js/runways.js";
 
 window.onload = () => {
 
-    // 1) Initialisation carte + layers globaux
+    // 1) Carte
     window.map = initMap();
 
     // 2) UI
